@@ -1,0 +1,15 @@
+name: drools-docs test
+on:
+  push:
+    paths:
+      - 'drools-docs/**/**.adoc'
+      - '.github/workflows/drools-docs.yml'
+
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this is pen2"
+      - uses: actions/checkout@v2
+      - run: |
+          ls -al
