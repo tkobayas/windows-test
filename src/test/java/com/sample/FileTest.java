@@ -27,12 +27,15 @@ public class FileTest {
 
         System.out.println("URL.getContent");
         Object content = target.toURL().getContent();
-        System.out.println("content = " + content);
+        System.out.println("content = " + content); // This is BufferedInputStream
 
-        System.out.println("close InputStream");
-        BufferedInputStream is = (BufferedInputStream)content;
-        is.close();
+//        System.out.println("close InputStream");
+//        BufferedInputStream is = (BufferedInputStream)content;
+//        is.close();
 
+        // If the InputStream is not closed,
+        //   Windows throws FileSystemException :The process cannot access the file because it is being used by another process.
+        //   Linux works without an Exception
         System.out.println("Files.copy : 3");
         Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
     }
