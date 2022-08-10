@@ -1,5 +1,6 @@
 package com.sample;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,6 +28,10 @@ public class FileTest {
         System.out.println("URL.getContent");
         Object content = target.toURL().getContent();
         System.out.println("content = " + content);
+
+        System.out.println("close InputStream");
+        BufferedInputStream is = (BufferedInputStream)content;
+        is.close();
 
         System.out.println("Files.copy : 3");
         Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
