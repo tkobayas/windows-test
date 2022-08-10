@@ -6,5 +6,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: echo "windows test"
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
       - uses: actions/checkout@v2
       - run: mvn -B clean install --file pom.xml
